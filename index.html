@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <script>
+        // デバッグ用にconsole.logを追加
+        console.log('Current path:', window.location.pathname);
+        
         // ブラウザの言語設定を取得
         const userLang = navigator.language || navigator.userLanguage;
+        console.log('User language:', userLang);
         
         // リポジトリ名のパスを取得
         const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+        console.log('Base path:', basePath);
         
-        // 日本語の場合は/ja/へ、それ以外は/en/へリダイレクト
-        if (userLang.startsWith('ja')) {
-            window.location.href = `${basePath}/ja/`;
-        } else {
-            window.location.href = `${basePath}/en/`;
-        }
+        // リダイレクト先のURLを作成
+        const redirectPath = userLang.startsWith('ja') ? 
+            `${basePath}/ja/` : 
+            `${basePath}/en/`;
+        console.log('Redirect path:', redirectPath);
+        
+        // リダイレクト
+        window.location.href = redirectPath;
     </script>
 </head>
 <body>
     <p>Redirecting...</p>
+    <p>If you are not redirected, please click:</p>
+    <p><a href="ja/">日本語</a> | <a href="en/">English</a></p>
 </body>
 </html>
