@@ -6,11 +6,14 @@
         // ブラウザの言語設定を取得
         const userLang = navigator.language || navigator.userLanguage;
         
+        // リポジトリ名のパスを取得
+        const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+        
         // 日本語の場合は/ja/へ、それ以外は/en/へリダイレクト
         if (userLang.startsWith('ja')) {
-            window.location.href = '/ja/';
+            window.location.href = `${basePath}/ja/`;
         } else {
-            window.location.href = '/en/';
+            window.location.href = `${basePath}/en/`;
         }
     </script>
 </head>
