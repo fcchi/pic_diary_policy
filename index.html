@@ -10,8 +10,8 @@
         const userLang = navigator.language || navigator.userLanguage;
         console.log('User language:', userLang);
         
-        // リポジトリ名のパスを取得
-        const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+        // リポジトリのベースパスを取得
+        const basePath = '/pic_diary_policy';
         console.log('Base path:', basePath);
         
         // リダイレクト先のURLを作成
@@ -27,6 +27,6 @@
 <body>
     <p>Redirecting...</p>
     <p>If you are not redirected, please click:</p>
-    <p><a href="ja/">日本語</a> | <a href="en/">English</a></p>
+    <p><a href="pic_diary_policy/ja/">日本語</a> | <a href="pic_diary_policy/en/">English</a></p>
 </body>
 </html>
